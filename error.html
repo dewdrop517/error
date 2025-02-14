@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Valentine Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #d8a7f2; /* Light purple background */
+            color: black; /* Black text */
+        }
+        .error {
+            font-size: 48px;
+            color: red;
+        }
+        .message {
+            font-size: 24px;
+            color: black; /* Black text */
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #ff66b2; /* Pink button */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #ff3385; /* Darker pink when hovered */
+        }
+        #lines {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error">404 - Valentine Not Found</div>
+    <div class="message">
+        these are reasons why i wanna be your valentine!<br> 
+        Oops! retry please...<br><br> 
+        <button class="button" onclick="showNextLine()">Try Again</button>
+    </div>
+    
+    <div id="lines"></div>
+
+    <script>
+        // Lines that will appear with each "Try Again" click
+        const lines = [
+            "i didn't know you are that curious to see this! I refused to be your valentine before so i thought u lost hope!😜",
+            "really? you want me that much! ayy so poor! 😔",
+            "ayyyeeeiin why u keep pressing retry! there is nothing here pagal🤔",
+            "as you are soo much stuborn i can't be so egoist i'll give you chance.. 😜",
+            " chance to leave this by your own! and i'll pretend that it didn't happen😜",
+            "anyway a programmer doesn't need valentine! you only need an algorithm to make ur world run a lot smoother. right? 😎"
+        ];
+
+        let lineIndex = 0;
+
+        // Function to show the next line when the button is clicked
+        function showNextLine() {
+            const linesContainer = document.getElementById("lines");
+            
+            // Remove any existing lines before adding the new one
+            linesContainer.innerHTML = ""; 
+
+            if (lineIndex < lines.length) {
+                const newLine = document.createElement("div");
+                newLine.textContent = lines[lineIndex];
+                linesContainer.appendChild(newLine);
+                lineIndex++;  // Move to the next line
+            } else {
+                // If all lines have been shown, reset
+                const resetMessage = document.createElement("div");
+                resetMessage.textContent = "but zaidoo..I guess you're my favorite bug.. not because you're broken, but because you're worth fixing. You may not be my Valentine, but you’re definitely my favorite person to troubleshoot with🖤. No more messages..ERROR!";
+                linesContainer.appendChild(resetMessage);
+            }
+        }
+    </script>
+</body>
+</html>
